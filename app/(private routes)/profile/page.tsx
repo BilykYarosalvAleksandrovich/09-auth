@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import css from "./Profile.module.css";
-import { getMe } from "@/lib/api/serverApi";
+import { getMe } from "@/lib/api";
 
 export const metadata = {
   title: "Profile | NoteHub",

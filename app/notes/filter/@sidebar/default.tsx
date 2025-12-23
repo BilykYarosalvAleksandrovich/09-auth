@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TAGS } from "@/lib/api";
+import { TAGS } from "@/lib/constants/tags";
 import css from "./page.module.css";
 
 export default function SidebarDefault() {

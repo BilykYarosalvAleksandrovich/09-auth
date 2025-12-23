@@ -1,0 +1,50 @@
+/* [project]/components/Header/Header.module.css [app-client] (css) */
+.Header-module__arFiJq__header {
+  color: #fff;
+  z-index: 1000;
+  background-color: #333;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  padding: 10px 20px;
+  display: flex;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 4px #0000001a;
+}
+
+.Header-module__arFiJq__header a {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.Header-module__arFiJq__header a:hover {
+  color: #a0a0a0;
+}
+
+.Header-module__arFiJq__navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.Header-module__arFiJq__navigation li:not(:last-child) {
+  margin-right: 20px;
+}
+
+.Header-module__arFiJq__navigation a {
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.Header-module__arFiJq__navigation a.Header-module__arFiJq__active {
+  background-color: #555;
+}
+
+/*# sourceMappingURL=components_Header_Header_module_css_bad6b30c._.single.css.map*/

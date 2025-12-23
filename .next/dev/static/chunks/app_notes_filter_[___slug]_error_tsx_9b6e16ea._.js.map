@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/mac/Desktop/%D1%88%D0%BA%D0%BE%D0%BB%D0%B0%20GoIt/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%96%20%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F%20GitHub/projects/React.js%2BNext/08-zustand/app/notes/filter/%5B...slug%5D/error.tsx"],"sourcesContent":["\"use client\";\n\nexport default function NotesError() {\n  return (\n    <div>\n      <h1>Oops! Error loading notes.</h1>\n      <p>Something went wrong. Please try again later.</p>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;;AAEe,SAAS;IACtB,qBACE,6LAAC;;0BACC,6LAAC;0BAAG;;;;;;0BACJ,6LAAC;0BAAE;;;;;;;;;;;;AAGT;KAPwB"}}]
+}

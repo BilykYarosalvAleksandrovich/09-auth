@@ -1,0 +1,31 @@
+/* [project]/components/Loader/Loader.module.css [app-client] (css) */
+.Loader-module__ciLxHG__loaderContainer {
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  display: flex;
+}
+
+.Loader-module__ciLxHG__text {
+  color: #0a66c2;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  animation: 1.5s ease-in-out infinite Loader-module__ciLxHG__pulse;
+}
+
+@keyframes Loader-module__ciLxHG__pulse {
+  0% {
+    opacity: .4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .4;
+  }
+}
+
+/*# sourceMappingURL=components_Loader_Loader_module_css_bad6b30c._.single.css.map*/

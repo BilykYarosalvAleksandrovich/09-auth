@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/components/Loader/Loader.module.css [app-rsc] (css module)"],"sourcesContent":["__turbopack_context__.v({\n  \"loaderContainer\": \"Loader-module__ciLxHG__loaderContainer\",\n  \"pulse\": \"Loader-module__ciLxHG__pulse\",\n  \"text\": \"Loader-module__ciLxHG__text\",\n});\n"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA"}},
+    {"offset": {"line": 12, "column": 0}, "map": {"version":3,"sources":["file:///Users/mac/Desktop/%D1%88%D0%BA%D0%BE%D0%BB%D0%B0%20GoIt/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%96%20%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F%20GitHub/projects/React.js%2BNext/08-zustand/components/Loader/Loader.tsx"],"sourcesContent":["import css from \"./Loader.module.css\";\n\nexport default function Loader() {\n  return (\n    <div className={css.loaderContainer}>\n      <p className={css.text}>Loading notes, please wait...</p>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;;;AAEe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAW,qJAAG,CAAC,eAAe;kBACjC,cAAA,8OAAC;YAAE,WAAW,qJAAG,CAAC,IAAI;sBAAE;;;;;;;;;;;AAG9B"}},
+    {"offset": {"line": 41, "column": 0}, "map": {"version":3,"sources":["file:///Users/mac/Desktop/%D1%88%D0%BA%D0%BE%D0%BB%D0%B0%20GoIt/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%96%20%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F%20GitHub/projects/React.js%2BNext/08-zustand/app/loading.tsx"],"sourcesContent":["import Loader from '@/components/Loader/Loader';\n\nexport default function Loading() {\n  return <Loader />;\n}"],"names":[],"mappings":";;;;;AAAA;;;AAEe,SAAS;IACtB,qBAAO,8OAAC,0IAAM;;;;;AAChB"}}]
+}

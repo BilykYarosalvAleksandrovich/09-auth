@@ -1,0 +1,18 @@
+/* [project]/components/ErrorMesage/ErrorMessage.module.css [app-client] (css) */
+.ErrorMessage-module__kq8UnW__text {
+  color: #d93025;
+  text-align: center;
+  letter-spacing: .5px;
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.ErrorMessage-module__kq8UnW__icon {
+  color: #d93025;
+  margin: 0 auto 8px;
+  font-size: 32px;
+  display: block;
+}
+
+/*# sourceMappingURL=components_ErrorMesage_ErrorMessage_module_css_bad6b30c._.single.css.map*/

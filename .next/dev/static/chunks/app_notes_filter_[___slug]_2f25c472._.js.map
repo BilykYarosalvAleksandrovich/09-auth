@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/notes/filter/[...slug]/layout.module.css [app-client] (css module)"],"sourcesContent":["__turbopack_context__.v({\n  \"container\": \"layout-module__RobQ-W__container\",\n  \"notesWrapper\": \"layout-module__RobQ-W__notesWrapper\",\n  \"sidebar\": \"layout-module__RobQ-W__sidebar\",\n});\n"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA"}},
+    {"offset": {"line": 12, "column": 0}, "map": {"version":3,"sources":["file:///Users/mac/Desktop/%D1%88%D0%BA%D0%BE%D0%BB%D0%B0%20GoIt/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%96%20%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F%20GitHub/projects/React.js%2BNext/08-zustand/app/notes/filter/%5B...slug%5D/layout.tsx"],"sourcesContent":["\"use client\";\nimport { ReactNode } from \"react\";\nimport css from \"./layout.module.css\";\n\ninterface SlugLayoutProps {\n  children: ReactNode;\n}\n\nexport default function SlugLayout({ children }: SlugLayoutProps) {\n  return <div className={css.container}>{children}</div>;\n}\n"],"names":[],"mappings":";;;;;AAEA;AAFA;;;AAQe,SAAS,WAAW,EAAE,QAAQ,EAAmB;IAC9D,qBAAO,6LAAC;QAAI,WAAW,4KAAG,CAAC,SAAS;kBAAG;;;;;;AACzC;KAFwB"}}]
+}

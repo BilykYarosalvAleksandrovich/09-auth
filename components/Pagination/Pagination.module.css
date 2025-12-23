@@ -1,0 +1,57 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  list-style: none;
+  padding: 0;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 6px;
+  border: 1px solid var(--border);
+  background-color: var(--background);
+  color: var(--foreground);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.button:hover:not(:disabled):not(.dots) {
+  border-color: var(--foreground);
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.active {
+  border-color: var(--foreground);
+  background-color: var(--foreground);
+  color: var(--background);
+  font-weight: 500;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--border);
+}
+
+.dots {
+  border: none;
+  background: none;
+  cursor: default;
+}
+
+.dots:hover {
+  background: none;
+  color: var(--foreground);
+  border: none;
+}

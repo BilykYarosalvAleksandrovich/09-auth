@@ -1,0 +1,17 @@
+/* [project]/app/notes/filter/layout.module.css [app-client] (css) */
+.layout-module__p5XwcW__container {
+  gap: 16px;
+  padding: 16px;
+  display: flex;
+}
+
+.layout-module__p5XwcW__sidebar {
+  width: 250px;
+  padding-right: 16px;
+}
+
+.layout-module__p5XwcW__notesWrapper {
+  flex: 1;
+}
+
+/*# sourceMappingURL=app_notes_filter_layout_module_b5a4474a.css.map*/

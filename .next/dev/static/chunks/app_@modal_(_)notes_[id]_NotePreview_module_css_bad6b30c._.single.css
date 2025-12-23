@@ -1,0 +1,45 @@
+/* [project]/app/@modal/(.)notes/[id]/NotePreview.module.css [app-client] (css) */
+.NotePreview-module__U-az_a__container {
+  max-width: 800px;
+  padding: 24px;
+}
+
+.NotePreview-module__U-az_a__title {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.NotePreview-module__U-az_a__meta {
+  gap: 12px;
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.NotePreview-module__U-az_a__tag {
+  background: #e7f1ff;
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.NotePreview-module__U-az_a__date {
+  color: #777;
+  font-size: 14px;
+}
+
+.NotePreview-module__U-az_a__content {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.NotePreview-module__U-az_a__closeButton {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 18px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+/*# sourceMappingURL=app_%40modal_%28_%29notes_%5Bid%5D_NotePreview_module_css_bad6b30c._.single.css.map*/

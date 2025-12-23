@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/components/Footer/Footer.module.css"],"sourcesContent":[".footer {\n  background-color: #222; /* Дуже темний фон */\n  color: #bbb;\n  padding: 20px 0;\n  margin-top: 40px; /* Відступ від основного контенту */\n  border-top: 1px solid #444;\n  text-align: center;\n}\n\n.content {\n  max-width: 1200px; /* Обмеження ширини контенту */\n  margin: 0 auto;\n  padding: 0 20px;\n  font-size: 0.9rem;\n}\n\n.wrap {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 10px;\n}\n\n.wrap p {\n  margin: 2px 0;\n}\n\n.footer a {\n  color: #88aaff; /* Яскраве посилання для контакту */\n  text-decoration: none;\n  margin-left: 5px;\n}\n\n.footer a:hover {\n  text-decoration: underline;\n}\n\n/* Адаптивність для великих екранів */\n@media (min-width: 768px) {\n  .wrap {\n    flex-direction: row;\n    justify-content: center;\n    gap: 30px; /* Простір між елементами в рядку */\n  }\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;AASA;;;;;;;AAOA;;;;;;;AAOA;;;;AAIA;;;;;;AAMA;;;;AAKA;EACE"}}]
+}

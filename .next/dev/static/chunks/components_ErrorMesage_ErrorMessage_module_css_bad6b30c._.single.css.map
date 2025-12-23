@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/components/ErrorMesage/ErrorMessage.module.css"],"sourcesContent":[".text {\n  color: #d93025;\n  font-size: 18px;\n  text-align: center;\n  margin-top: 24px;\n  font-weight: 500;\n  letter-spacing: 0.5px;\n}\n\n.icon {\n  display: block;\n  font-size: 32px;\n  margin: 0 auto 8px auto;\n  color: #d93025;\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;AASA"}}]
+}

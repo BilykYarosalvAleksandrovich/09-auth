@@ -1,0 +1,60 @@
+/* [project]/components/Pagination/Pagination.module.css [app-client] (css) */
+.Pagination-module__QyWOzW__pagination {
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.Pagination-module__QyWOzW__button {
+  border: 1px solid var(--border);
+  background-color: var(--background);
+  min-width: 32px;
+  height: 32px;
+  color: var(--foreground);
+  cursor: pointer;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6px;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all .2s;
+  display: flex;
+}
+
+.Pagination-module__QyWOzW__button:hover:not(:disabled):not(.Pagination-module__QyWOzW__dots) {
+  border-color: var(--foreground);
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.Pagination-module__QyWOzW__active {
+  border-color: var(--foreground);
+  background-color: var(--foreground);
+  color: var(--background);
+  font-weight: 500;
+}
+
+.Pagination-module__QyWOzW__button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  border-color: var(--border);
+}
+
+.Pagination-module__QyWOzW__dots {
+  cursor: default;
+  background: none;
+  border: none;
+}
+
+.Pagination-module__QyWOzW__dots:hover {
+  color: var(--foreground);
+  background: none;
+  border: none;
+}
+
+/*# sourceMappingURL=components_Pagination_Pagination_module_css_bad6b30c._.single.css.map*/

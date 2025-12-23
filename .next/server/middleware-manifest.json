@@ -1,5 +1,5 @@
 {
-  "sorted_middleware": [],
+  "version": 3,
   "middleware": {
     "/": {
       "files": [
@@ -11,19 +11,19 @@
       "page": "/",
       "matchers": [
         {
-          "regexp": "/:nextData(_next/data/[^/]{1,})?/profile/:path*{(\\\\.json)}?",
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/profile(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
           "originalSource": "/profile/:path*"
         },
         {
-          "regexp": "/:nextData(_next/data/[^/]{1,})?/notes/:path*{(\\\\.json)}?",
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/notes(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
           "originalSource": "/notes/:path*"
         },
         {
-          "regexp": "/:nextData(_next/data/[^/]{1,})?/sign-in{(\\\\.json)}?",
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/sign-in(\\\\.json)?[\\/#\\?]?$",
           "originalSource": "/sign-in"
         },
         {
-          "regexp": "/:nextData(_next/data/[^/]{1,})?/sign-up{(\\\\.json)}?",
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/sign-up(\\\\.json)?[\\/#\\?]?$",
           "originalSource": "/sign-up"
         }
       ],
@@ -38,6 +38,8 @@
       }
     }
   },
-  "instrumentation": null,
+  "sortedMiddleware": [
+    "/"
+  ],
   "functions": {}
 }

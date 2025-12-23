@@ -41,11 +41,12 @@ export const updateMe = async (data: { username: string }): Promise<User> => {
 // ---------- NOTES ----------
 export const fetchNotes = async (params?: {
   page?: number;
+  perPage?: number;
   search?: string;
   tag?: string;
 }) => {
   const res = await api.get("/notes", {
-    params: { perPage: 12, ...params },
+    params,
   });
   return res.data;
 };

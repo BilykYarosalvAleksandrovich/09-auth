@@ -1,0 +1,3 @@
+module.exports=[28744,a=>{a.v({menuItem:"page-module__RL9qBa__menuItem",menuLink:"page-module__RL9qBa__menuLink",menuList:"page-module__RL9qBa__menuList"})},86602,a=>{"use strict";var b=a.i(87924),c=a.i(38246),d=a.i(28744);let e=["all","Work","Personal","Study","Other"];function f(){return(0,b.jsx)("ul",{className:d.default.menuList,children:e.map(a=>(0,b.jsx)("li",{className:d.default.menuItem,children:(0,b.jsx)(c.default,{href:"all"===a?"/notes/filter/all":`/notes/filter/${a}`,className:d.default.menuLink,children:a})},a))})}a.s(["default",()=>f])}];
+
+//# sourceMappingURL=app_notes_filter_%40sidebar_89c4d50c._.js.map

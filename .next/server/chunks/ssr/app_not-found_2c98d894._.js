@@ -1,0 +1,3 @@
+module.exports=[86560,a=>{a.v({container:"page-module__0enQ1G__container",description:"page-module__0enQ1G__description",title:"page-module__0enQ1G__title"})},45469,a=>{"use strict";var b=a.i(7997),c=a.i(86560);function d(){return(0,b.jsxs)("div",{className:c.default.container,children:[(0,b.jsx)("h1",{className:c.default.title,children:"404 - Page not found"}),(0,b.jsx)("p",{className:c.default.description,children:"Sorry, the page you are looking for does not exist."})]})}a.s(["default",()=>d])}];
+
+//# sourceMappingURL=app_not-found_2c98d894._.js.map

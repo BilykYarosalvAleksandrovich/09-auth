@@ -1,0 +1,3 @@
+module.exports=[86001,a=>{a.v({loaderContainer:"Loader-module__ciLxHG__loaderContainer",pulse:"Loader-module__ciLxHG__pulse",text:"Loader-module__ciLxHG__text"})},31656,a=>{"use strict";var b=a.i(7997),c=a.i(86001);function d(){return(0,b.jsx)("div",{className:c.default.loaderContainer,children:(0,b.jsx)("p",{className:c.default.text,children:"Loading notes, please wait..."})})}a.s(["default",()=>d])},63588,a=>{"use strict";var b=a.i(7997),c=a.i(31656);function d(){return(0,b.jsx)(c.default,{})}a.s(["default",()=>d])}];
+
+//# sourceMappingURL=_13680753._.js.map

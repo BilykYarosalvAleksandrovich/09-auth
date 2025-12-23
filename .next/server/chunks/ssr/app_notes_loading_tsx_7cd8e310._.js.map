@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../app/notes/loading.tsx"],"sourcesContent":["const Loader = () => {\n  return <p>Завантаження нотатків...</p>;\n};\n\nexport default Loader;\n"],"names":[],"mappings":"wEAAe,IACN,CAAA,EAAA,EAAA,GAAA,EAAC,IAAA,UAAE"}

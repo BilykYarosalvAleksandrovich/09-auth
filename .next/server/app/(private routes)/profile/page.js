@@ -14,7 +14,7 @@ R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthor
 R.c("server/chunks/ssr/node_modules_c0078b77._.js")
 R.c("server/chunks/ssr/_07a744a5._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__d396bed4._.js")
-R.c("server/chunks/ssr/node_modules_dbb94db6._.js")
+R.c("server/chunks/ssr/_06e2b6c4._.js")
 R.c("server/chunks/ssr/_next-internal_server_app_(private routes)_profile_page_actions_a3ce35d3.js")
 R.m(98298)
 module.exports=R.m(98298).exports

@@ -1,0 +1,76 @@
+/* [project]/app/(auth routes)/sign-up/SignUp.module.css [app-client] (css) */
+.SignUp-module___dLqvG__mainContent {
+  flex: 1;
+}
+
+.SignUp-module___dLqvG__form {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 24px;
+  display: flex;
+  box-shadow: 0 2px 8px #0000000d;
+}
+
+.SignUp-module___dLqvG__formTitle {
+  text-align: center;
+  color: #212529;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.SignUp-module___dLqvG__formGroup {
+  color: #212529;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+}
+
+.SignUp-module___dLqvG__input {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-top: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.SignUp-module___dLqvG__actions {
+  justify-content: flex-end;
+  gap: 8px;
+  display: flex;
+}
+
+.SignUp-module___dLqvG__submitButton {
+  color: #fff;
+  cursor: pointer;
+  background-color: #0d6efd;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  transition: background-color .2s;
+}
+
+.SignUp-module___dLqvG__submitButton:hover {
+  background-color: #0d6efd;
+}
+
+.SignUp-module___dLqvG__submitButton:disabled {
+  cursor: not-allowed;
+  background-color: #b1c7ae;
+}
+
+.SignUp-module___dLqvG__error {
+  color: #dc3545;
+  text-align: center;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+/*# sourceMappingURL=app_%28auth%20routes%29_sign-up_SignUp_module_be5af3f6.css.map*/

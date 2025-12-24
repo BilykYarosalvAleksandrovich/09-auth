@@ -1,0 +1,19 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/notes/layout,_N_T_/notes/filter/layout,_N_T_/notes/filter/@sidebar/layout,_N_T_/notes/filter/@sidebar/page,_N_T_/notes/filter"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/notes/filter/__DEFAULT__",
+    "/notes/filter/@sidebar/!KHNsb3Qp/__PAGE__",
+    "/notes/filter/@sidebar/!KHNsb3Qp",
+    "/notes/filter",
+    "/notes",
+    "/@modal/__DEFAULT__",
+    "/_index",
+    "/_head"
+  ]
+}

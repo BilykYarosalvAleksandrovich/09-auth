@@ -1,0 +1,15 @@
+{
+  "/(auth routes)/sign-in/page": "/sign-in",
+  "/(auth routes)/sign-up/page": "/sign-up",
+  "/(private routes)/profile/edit/page": "/profile/edit",
+  "/(private routes)/profile/page": "/profile",
+  "/@modal/(.)notes/[id]/page": "/(.)notes/[id]",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/not-found/page": "/not-found",
+  "/notes/[id]/page": "/notes/[id]",
+  "/notes/action/create/page": "/notes/action/create",
+  "/notes/filter/@sidebar/page": "/notes/filter",
+  "/notes/filter/[...slug]/page": "/notes/filter/[...slug]",
+  "/page": "/"
+}

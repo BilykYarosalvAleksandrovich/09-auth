@@ -1,8 +1,10 @@
+export const dynamic = "force-dynamic";
+
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import css from "./Profile.module.css";
-import { getMe } from "@/lib/api";
+import { getMe } from "@/lib/api/serverApi";
 
 export const metadata = {
   title: "Profile | NoteHub",
@@ -29,7 +31,7 @@ export default async function ProfilePage() {
 
         <div className={css.avatarWrapper}>
           <Image
-            src={user.avatar}
+            src={user.avatar || "/avatar-placeholder.png"}
             alt="User Avatar"
             width={120}
             height={120}

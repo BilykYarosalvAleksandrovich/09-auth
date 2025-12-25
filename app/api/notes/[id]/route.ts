@@ -1,14 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/notes/${params.id}`,
-    { credentials: "include" }
-  );
+type Params = {
+  params: Promise<{
+    id: string;
+  }>;
+};
 
-  const data = await res.json();
-  return NextResponse.json(data);
+export async function GET(req: NextRequest, { params }: Params) {
+  const { id } = await params;
+
+  return NextResponse.json({ id });
 }

@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":""}
+{"version":3,"sources":["../../../../app/%28private%20routes%29/notes/filter/%40sidebar/default.tsx"],"sourcesContent":["export default function NotesFilterSidebar() {\n  return null;\n}\n"],"names":[],"mappings":"uCAAe,SAAS,IACtB,OAAO,IACT"}

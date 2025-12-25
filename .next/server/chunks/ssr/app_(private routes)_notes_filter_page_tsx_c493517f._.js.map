@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":""}
+{"version":3,"sources":["../../../../app/%28private%20routes%29/notes/filter/page.tsx"],"sourcesContent":["export default function NotesFilterPage() {\n  return (\n    <div>\n      <h1>Notes filter page</h1>\n    </div>\n  );\n}\n"],"names":[],"mappings":"uDAAe,SAAS,IACtB,MACE,CAAA,EAAA,EAAA,GAAA,EAAC,MAAA,UACC,CAAA,EAAA,EAAA,GAAA,EAAC,KAAA,UAAG,uBAGV"}

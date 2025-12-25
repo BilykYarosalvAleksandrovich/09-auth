@@ -4,7 +4,7 @@
 type AppRoutes = "/" | "/not-found" | "/notes" | "/notes/[id]" | "/notes/action/create" | "/notes/filter" | "/notes/filter/[...slug]" | "/profile" | "/profile/edit" | "/sign-in" | "/sign-up"
 type AppRouteHandlerRoutes = "/api/auth/login" | "/api/auth/logout" | "/api/auth/register" | "/api/auth/session" | "/api/notes" | "/api/notes/[id]" | "/api/users/me"
 type PageRoutes = never
-type LayoutRoutes = "/" | "/notes/filter" | "/notes/filter/[...slug]"
+type LayoutRoutes = "/"
 type RedirectRoutes = never
 type RewriteRoutes = never
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes | AppRouteHandlerRoutes
@@ -36,8 +36,6 @@ export type ParamsOf<Route extends Routes> = ParamMap[Route]
 
 interface LayoutSlotMap {
   "/": "modal"
-  "/notes/filter": "sidebar"
-  "/notes/filter/[...slug]": never
 }
 
 

@@ -254,24 +254,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../app/notes/[id]/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/notes/[id]">> = Specific
-  const handler = {} as typeof import("../../app/notes/[id]/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../app/notes/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/notes">> = Specific
-  const handler = {} as typeof import("../../app/notes/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
 
 
 

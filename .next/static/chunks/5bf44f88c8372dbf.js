@@ -1,1 +1,0 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,79009,e=>{"use strict";var r=e.i(43476);function t(){return(0,r.jsxs)("div",{children:[(0,r.jsx)("h1",{children:"Oops! Error loading notes."}),(0,r.jsx)("p",{children:"Something went wrong. Please try again later."})]})}e.s(["default",()=>t])}]);

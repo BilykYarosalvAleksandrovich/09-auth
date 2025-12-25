@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../app/%40modal/default.tsx"],"sourcesContent":["export default function Default() {\n  return null;\n}"],"names":[],"mappings":"oTAAe,SAAS,IACtB,OAAO,IACT"}

@@ -1,3 +1,0 @@
-module.exports=[51645,a=>{a.v({container:"layout-module__RobQ-W__container",notesWrapper:"layout-module__RobQ-W__notesWrapper",sidebar:"layout-module__RobQ-W__sidebar"})},43795,a=>{"use strict";var b=a.i(87924),c=a.i(51645);function d({children:a}){return(0,b.jsx)("div",{className:c.default.container,children:a})}a.s(["default",()=>d])}];
-
-//# sourceMappingURL=app_notes_filter_%5B___slug%5D_803ee47d._.js.map

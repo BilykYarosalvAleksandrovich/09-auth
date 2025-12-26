@@ -1,29 +1,61 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { checkSession } from "@/lib/api/serverApi";
 
-const PRIVATE_ROUTES = ["/profile", "/notes"];
-const AUTH_ROUTES = ["/sign-in", "/sign-up"];
+const privateRoutes = ["/notes", "/profile"];
+const authRoutes = ["/login", "/register"];
 
-export function middleware(request: NextRequest) {
+const isPrivateRoute = (pathname: string) =>
+  privateRoutes.some((route) => pathname.startsWith(route));
+
+const isAuthRoute = (pathname: string) =>
+  authRoutes.some((route) => pathname.startsWith(route));
+
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const hasSession =
-    request.cookies.has("accessToken") || request.cookies.has("refreshToken");
+  const accessToken = request.cookies.get("accessToken")?.value;
+  const refreshToken = request.cookies.get("refreshToken")?.value;
 
-  // 🔒 гість → приватні маршрути
-  if (
-    !hasSession &&
-    PRIVATE_ROUTES.some((route) => pathname.startsWith(route))
-  ) {
+  /* ===== PRIVATE ROUTES ===== */
+  if (isPrivateRoute(pathname)) {
+    // accessToken є → пускаємо
+    if (accessToken) {
+      return NextResponse.next();
+    }
+
+    // accessToken немає, але є refreshToken → пробуємо оновити сесію
+    if (refreshToken) {
+      try {
+        const response = await checkSession();
+
+        const nextResponse = NextResponse.next();
+
+        const setCookie = response.headers["set-cookie"];
+
+        if (setCookie) {
+          setCookie.forEach((cookie) =>
+            nextResponse.headers.append("Set-Cookie", cookie)
+          );
+        }
+
+        return nextResponse;
+      } catch {
+        const url = request.nextUrl.clone();
+        url.pathname = "/login";
+        return NextResponse.redirect(url);
+      }
+    }
+
+    // немає жодного токена → login
     const url = request.nextUrl.clone();
-    url.pathname = "/sign-in";
+    url.pathname = "/login";
     return NextResponse.redirect(url);
   }
 
-  // 🔁 авторизований → auth-сторінки
-  if (hasSession && AUTH_ROUTES.some((route) => pathname.startsWith(route))) {
+  /* ===== AUTH ROUTES ===== */
+  if (isAuthRoute(pathname) && accessToken) {
     const url = request.nextUrl.clone();
-    url.pathname = "/profile";
+    url.pathname = "/notes";
     return NextResponse.redirect(url);
   }
 
@@ -31,5 +63,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/profile/:path*", "/notes/:path*", "/sign-in", "/sign-up"],
+  matcher: ["/notes/:path*", "/profile/:path*", "/login", "/register"],
 };

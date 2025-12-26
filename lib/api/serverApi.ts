@@ -1,32 +1,51 @@
 import axios from "axios";
 import { cookies } from "next/headers";
-import type { User } from "@/types/user";
-import type { Note } from "@/types/note";
+import type { AxiosInstance, AxiosResponse } from "axios";
+import type { User, Note } from "@/types";
 
-const baseURL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-// ✅ SERVER axios instance
-const serverApi = () =>
-  axios.create({
-    baseURL,
-    withCredentials: true,
+const createServerApi = (): AxiosInstance => {
+  const cookieStore = cookies();
+  const cookieHeader = cookieStore
+    .getAll()
+    .map((c) => `${c.name}=${c.value}`)
+    .join("; ");
+
+  return axios.create({
+    baseURL: API_URL,
     headers: {
-      Cookie: cookies().toString(), // 🔥 головне для SSR
+      Cookie: cookieHeader,
     },
+    withCredentials: true,
   });
-
-// ---------- AUTH ----------
-export const getMe = async (): Promise<User | null> => {
-  try {
-    const res = await serverApi().get<User>("/users/me");
-    return res.data;
-  } catch {
-    return null;
-  }
 };
 
-// ---------- NOTES ----------
+/* ========= AUTH ========= */
+
+export const checkSession = async (): Promise<AxiosResponse> => {
+  const api = createServerApi();
+  return api.get("/auth/session");
+};
+
+export const getMe = async (): Promise<User> => {
+  const api = createServerApi();
+  const { data } = await api.get<User>("/users/me");
+  return data;
+};
+
+/* ========= NOTES ========= */
+
+export const fetchNotes = async (page = 1, search = ""): Promise<Note[]> => {
+  const api = createServerApi();
+  const { data } = await api.get<Note[]>("/notes", {
+    params: { page, search },
+  });
+  return data;
+};
+
 export const fetchNoteById = async (id: string): Promise<Note> => {
-  const res = await serverApi().get<Note>(`/notes/${id}`);
-  return res.data;
+  const api = createServerApi();
+  const { data } = await api.get<Note>(`/notes/${id}`);
+  return data;
 };

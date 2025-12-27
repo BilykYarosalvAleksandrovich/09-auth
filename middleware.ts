@@ -1,14 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkSession } from "@/lib/api/serverApi";
 
-const privateRoutes = ["/notes", "/profile"];
-const authRoutes = ["/login", "/register"];
-
-const isPrivateRoute = (pathname: string) =>
-  privateRoutes.some((route) => pathname.startsWith(route));
-
-const isAuthRoute = (pathname: string) =>
-  authRoutes.some((route) => pathname.startsWith(route));
+const privateRoutes = ["/profile", "/notes"];
+const authRoutes = ["/sign-in", "/sign-up"];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -16,52 +10,69 @@ export async function middleware(request: NextRequest) {
   const accessToken = request.cookies.get("accessToken")?.value;
   const refreshToken = request.cookies.get("refreshToken")?.value;
 
-  /* ===== PRIVATE ROUTES ===== */
-  if (isPrivateRoute(pathname)) {
-    // accessToken є → пускаємо
+  const isPrivateRoute = privateRoutes.some((route) =>
+    pathname.startsWith(route)
+  );
+
+  const isAuthRoute = authRoutes.some((route) => pathname.startsWith(route));
+
+  /**
+   * 🔒 PRIVATE ROUTES
+   */
+  if (isPrivateRoute) {
+    // 1️⃣ є accessToken → пускаємо
     if (accessToken) {
       return NextResponse.next();
     }
 
-    // accessToken немає, але є refreshToken → пробуємо оновити сесію
+    // 2️⃣ немає accessToken, але є refreshToken → пробуємо оновити
     if (refreshToken) {
       try {
         const response = await checkSession();
 
         const nextResponse = NextResponse.next();
 
-        const setCookie = response.headers["set-cookie"];
+        const setCookieHeader = response.headers["set-cookie"];
 
-        if (setCookie) {
-          setCookie.forEach((cookie) =>
-            nextResponse.headers.append("Set-Cookie", cookie)
-          );
+        if (setCookieHeader) {
+          const cookies = Array.isArray(setCookieHeader)
+            ? setCookieHeader
+            : [setCookieHeader];
+
+          cookies.forEach((cookie) => {
+            nextResponse.headers.append("Set-Cookie", cookie);
+          });
         }
 
         return nextResponse;
       } catch {
         const url = request.nextUrl.clone();
-        url.pathname = "/login";
+        url.pathname = "/sign-in";
         return NextResponse.redirect(url);
       }
     }
 
-    // немає жодного токена → login
+    // 3️⃣ немає жодного токена → redirect
     const url = request.nextUrl.clone();
-    url.pathname = "/login";
+    url.pathname = "/sign-in";
     return NextResponse.redirect(url);
   }
 
-  /* ===== AUTH ROUTES ===== */
-  if (isAuthRoute(pathname) && accessToken) {
+  /**
+   * 🔐 AUTH ROUTES
+   */
+  if (isAuthRoute && accessToken) {
     const url = request.nextUrl.clone();
-    url.pathname = "/notes";
+    url.pathname = "/profile";
     return NextResponse.redirect(url);
   }
 
   return NextResponse.next();
 }
 
+/**
+ * 🎯 MATCHER
+ */
 export const config = {
-  matcher: ["/notes/:path*", "/profile/:path*", "/login", "/register"],
+  matcher: ["/profile/:path*", "/notes/:path*", "/sign-in", "/sign-up"],
 };

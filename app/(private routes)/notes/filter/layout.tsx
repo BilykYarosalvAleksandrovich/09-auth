@@ -1,9 +1,15 @@
 import { ReactNode } from "react";
 
-export default function NotesFilterLayout({
-  children,
-}: {
+type Props = {
   children: ReactNode;
-}) {
-  return <>{children}</>;
+  sidebar: ReactNode;
+};
+
+export default function FilterLayout({ children, sidebar }: Props) {
+  return (
+    <div>
+      {sidebar}
+      {children}
+    </div>
+  );
 }

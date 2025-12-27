@@ -11,26 +11,26 @@
       "page": "/",
       "matchers": [
         {
-          "regexp": "/:nextData(_next/data/[^/]{1,})?/profile/:path*{(\\\\.json)}?",
-          "originalSource": "/profile/:path*"
-        },
-        {
           "regexp": "/:nextData(_next/data/[^/]{1,})?/notes/:path*{(\\\\.json)}?",
           "originalSource": "/notes/:path*"
         },
         {
-          "regexp": "/:nextData(_next/data/[^/]{1,})?/sign-in{(\\\\.json)}?",
-          "originalSource": "/sign-in"
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/profile/:path*{(\\\\.json)}?",
+          "originalSource": "/profile/:path*"
         },
         {
-          "regexp": "/:nextData(_next/data/[^/]{1,})?/sign-up{(\\\\.json)}?",
-          "originalSource": "/sign-up"
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/login{(\\\\.json)}?",
+          "originalSource": "/login"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/register{(\\\\.json)}?",
+          "originalSource": "/register"
         }
       ],
       "wasm": [],
       "assets": [],
       "env": {
-        "__NEXT_BUILD_ID": "BbJhcEDlYmzikQijR6ldp",
+        "__NEXT_BUILD_ID": "KpC9PsSGjHO2RaJgu6mH-",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "g2bo9xoyMi814F1THCR0sqpyk6CX+BgNpgTGv8yV9Dw=",
         "__NEXT_PREVIEW_MODE_ID": "3d569a0d09963079db6775a7e1502e76",
         "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "7ce1d43a24015b7ab05b89f24348d192c99730b49c88a94a2e04bc5ce42bb7b3",

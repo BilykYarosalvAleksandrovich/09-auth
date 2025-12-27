@@ -1,28 +1,12 @@
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
+import { serverApi } from "@/app/api/api";
 import axios from "axios";
-import { api } from "@/app/api/api";
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const body = await request.json();
+    const body = await req.json();
 
-    const response = await api.post("/auth/register", body);
-
-    const cookieStore = cookies();
-    const setCookie = response.headers["set-cookie"];
-
-    if (setCookie) {
-      setCookie.forEach((cookie) => {
-        const [cookiePart] = cookie.split(";");
-        const [name, value] = cookiePart.split("=");
-
-        cookieStore.set(name, value, {
-          httpOnly: true,
-          path: "/",
-        });
-      });
-    }
+    const response = await serverApi().post("/auth/register", body);
 
     return NextResponse.json(response.data, {
       status: response.status,
@@ -30,8 +14,8 @@ export async function POST(request: Request) {
   } catch (error) {
     if (axios.isAxiosError(error)) {
       return NextResponse.json(
-        error.response?.data ?? { message: "Server error" },
-        { status: error.response?.status ?? 500 }
+        { message: error.response?.data?.message || "Register error" },
+        { status: error.response?.status || 400 }
       );
     }
 

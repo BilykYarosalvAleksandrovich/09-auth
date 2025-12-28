@@ -1,77 +1,51 @@
-import axios, { AxiosResponse } from "axios";
+import User from "@/types/user";
+import { nextServer } from "./api";
 import { cookies } from "next/headers";
-import type { Note } from "@/types/note";
-import type { User } from "@/types/user";
+import { Note } from "@/types/note";
 
-/**
- * Server Axios instance
- */
-const serverApi = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-  withCredentials: true,
-});
+interface fetchServerNotesResponse {
+  notes: Note[];
+  totalPages: number;
+}
 
-/**
- * 🔐 додаємо cookies до кожного server-запиту
- */
-serverApi.interceptors.request.use((config) => {
-  const cookieStore = cookies();
-  const cookieString = cookieStore
-    .getAll()
-    .map((c) => `${c.name}=${c.value}`)
-    .join("; ");
+export const getServerMe = async () => {
+  const cookieStore = await cookies();
+  const { data } = await nextServer.get<User>("/users/me", {
+    headers: { Cookie: cookieStore.toString() },
+  });
+  return data;
+};
 
-  if (cookieString) {
-    config.headers.Cookie = cookieString;
-  }
-
-  return config;
-});
-
-/* ------------------------------------------------------------------ */
-/* ----------------------------- AUTH -------------------------------- */
-/* ------------------------------------------------------------------ */
-
-/**
- * ✅ ПЕРЕВІРКА СЕСІЇ
- * ⚠️ ПОВЕРТАЄ AxiosResponse, не data
- */
-export async function checkSession(): Promise<AxiosResponse> {
-  const response = await serverApi.get("/auth/session");
+export const checkServerSession = async () => {
+  const cookieStore = await cookies();
+  const response = await nextServer.get("/auth/session", {
+    headers: { Cookie: cookieStore.toString() },
+  });
   return response;
-}
+};
 
-/**
- * ✅ ОТРИМАТИ ПОТОЧНОГО КОРИСТУВАЧА
- */
-export async function getMe(): Promise<User> {
-  const response = await serverApi.get<User>("/users/me");
-  return response.data;
-}
-
-/* ------------------------------------------------------------------ */
-/* ----------------------------- NOTES ------------------------------- */
-/* ------------------------------------------------------------------ */
-
-/**
- * ✅ ОТРИМАТИ ВСІ НОТАТКИ
- */
-export async function fetchNotes(params?: {
-  page?: number;
-  perPage?: number;
-  search?: string;
-  tag?: string;
-}): Promise<Note[]> {
-  const response = await serverApi.get<Note[]>("/notes", {
-    params,
+export const fetchServerNotes = async (
+  query: string,
+  currentPage: number,
+  tag?: string
+): Promise<fetchServerNotesResponse> => {
+  const cookieStore = await cookies();
+  const response = await nextServer.get<fetchServerNotesResponse>("/notes", {
+    params: {
+      search: query,
+      page: currentPage,
+      perPage: 10,
+      tag: tag,
+    },
+    headers: { Cookie: cookieStore.toString() },
   });
   return response.data;
-}
+};
 
-/**
- * ✅ ОТРИМАТИ НОТАТКУ ПО ID
- */
-export async function fetchNoteById(id: string): Promise<Note> {
-  const response = await serverApi.get<Note>(`/notes/${id}`);
+export const fetchServerNoteById = async (noteId: string) => {
+  const cookieStore = await cookies();
+  const response = await nextServer.get(`/notes/${noteId}`, {
+    headers: { Cookie: cookieStore.toString() },
+  });
   return response.data;
-}
+};

@@ -1,18 +1,8 @@
-import axios from "axios";
-import { cookies } from "next/headers";
+import axios, { AxiosError } from "axios";
 
-export const serverApi = () => {
-  const cookieStore = cookies();
+export type ApiError = AxiosError<{ error: string }>;
 
-  const cookieHeader = cookieStore
-    .getAll()
-    .map((c) => `${c.name}=${c.value}`)
-    .join("; ");
-
-  return axios.create({
-    baseURL: process.env.API_URL,
-    headers: {
-      Cookie: cookieHeader,
-    },
-  });
-};
+export const api = axios.create({
+  baseURL: "https://notehub-api.goit.study",
+  withCredentials: true,
+});

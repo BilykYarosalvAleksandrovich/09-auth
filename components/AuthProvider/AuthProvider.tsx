@@ -1,55 +1,34 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import { checkSession } from "@/lib/api/clientApi";
-import { useAuthStore } from "@/lib/store/authStore";
+import { useAuth } from "@/lib/store/authStore";
+import { checkSession, getMe } from "@/lib/api/clientApi";
+import { useEffect } from "react";
 
 interface AuthProviderProps {
   children: React.ReactNode;
 }
 
-const PRIVATE_ROUTES = ["/profile", "/notes"];
-
-export default function AuthProvider({ children }: AuthProviderProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const { setUser, clearIsAuthenticated } = useAuthStore();
-  const [isLoading, setIsLoading] = useState(true);
+const AuthProvider = ({ children }: AuthProviderProps) => {
+  const setUser = useAuth((state) => state.setUser);
+  const clearUser = useAuth((state) => state.clearAuth);
 
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const user = await checkSession();
+    const fetchAuth = async () => {
+      const isAuth = await checkSession();
 
+      if (isAuth) {
+        const user = await getMe();
         if (user) {
           setUser(user);
-        } else {
-          clearIsAuthenticated();
-
-          const isPrivate = PRIVATE_ROUTES.some((route) =>
-            pathname.startsWith(route)
-          );
-
-          if (isPrivate) {
-            router.replace("/sign-in");
-            return;
-          }
         }
-      } catch {
-        clearIsAuthenticated();
-      } finally {
-        setIsLoading(false);
+      } else {
+        clearUser();
       }
     };
 
-    checkAuth();
-  }, [pathname, router, setUser, clearIsAuthenticated]);
+    fetchAuth();
+  }, [setUser, clearUser]);
 
-  if (isLoading) {
-    return <p style={{ padding: 24 }}>Loading...</p>;
-  }
+  return children;
+};
 
-  return <>{children}</>;
-}
+export default AuthProvider;

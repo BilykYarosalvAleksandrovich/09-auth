@@ -1,7 +1,9 @@
-export default function NotesFilterPage() {
-  return (
-    <div>
-      <h1>Notes filter page</h1>
-    </div>
-  );
-}
+import React from "react";
+
+import { redirect } from "next/navigation";
+const Redirect = () => {
+  redirect("/notes/filter/All");
+  return <div></div>;
+};
+
+export default Redirect;

@@ -1,84 +1,90 @@
 import { NextResponse } from "next/server";
+import { api } from "../../api";
 import { cookies } from "next/headers";
-import axios from "axios";
-import { api } from "@/app/api/api";
+import { logErrorResponse } from "../../_utils/utils";
+import { isAxiosError } from "axios";
 
-type Params = {
-  params: {
-    id: string;
-  };
+type Props = {
+  params: Promise<{ id: string }>;
 };
 
-export async function GET(_req: Request, { params }: Params) {
+export async function GET(request: Request, { params }: Props) {
   try {
-    const response = await api.get(`/notes/${params.id}`);
-
-    return NextResponse.json(response.data, {
-      status: response.status,
+    const cookieStore = await cookies();
+    const { id } = await params;
+    const res = await api(`/notes/${id}`, {
+      headers: {
+        Cookie: cookieStore.toString(),
+      },
     });
+    return NextResponse.json(res.data, { status: res.status });
   } catch (error) {
-    if (axios.isAxiosError(error)) {
+    if (isAxiosError(error)) {
+      logErrorResponse(error.response?.data);
       return NextResponse.json(
-        error.response?.data ?? { message: "Failed to fetch note" },
-        { status: error.response?.status ?? 500 }
+        { error: error.message, response: error.response?.data },
+        { status: error.status }
       );
     }
-
-    return NextResponse.json({ message: "Unknown error" }, { status: 500 });
+    logErrorResponse({ message: (error as Error).message });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }
 
-export async function PATCH(req: Request, { params }: Params) {
+export async function DELETE(request: Request, { params }: Props) {
   try {
-    const body = await req.json();
+    const cookieStore = await cookies();
+    const { id } = await params;
 
-    const response = await api.patch(`/notes/${params.id}`, body);
-
-    const cookieStore = cookies();
-    const setCookie = response.headers["set-cookie"];
-
-    if (setCookie) {
-      setCookie.forEach((cookie) => {
-        const [cookiePart] = cookie.split(";");
-        const [name, value] = cookiePart.split("=");
-
-        cookieStore.set(name, value, {
-          httpOnly: true,
-          path: "/",
-        });
-      });
-    }
-
-    return NextResponse.json(response.data, {
-      status: response.status,
+    const res = await api.delete(`/notes/${id}`, {
+      headers: {
+        Cookie: cookieStore.toString(),
+      },
     });
+    return NextResponse.json(res.data, { status: res.status });
   } catch (error) {
-    if (axios.isAxiosError(error)) {
+    if (isAxiosError(error)) {
+      logErrorResponse(error.response?.data);
       return NextResponse.json(
-        error.response?.data ?? { message: "Failed to update note" },
-        { status: error.response?.status ?? 500 }
+        { error: error.message, response: error.response?.data },
+        { status: error.status }
       );
     }
-
-    return NextResponse.json({ message: "Unknown error" }, { status: 500 });
+    logErrorResponse({ message: (error as Error).message });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }
 
-export async function DELETE(_req: Request, { params }: Params) {
+export async function PATCH(request: Request, { params }: Props) {
   try {
-    const response = await api.delete(`/notes/${params.id}`);
+    const cookieStore = await cookies();
+    const { id } = await params;
+    const body = await request.json();
 
-    return NextResponse.json(response.data, {
-      status: response.status,
+    const res = await api.patch(`/notes/${id}`, body, {
+      headers: {
+        Cookie: cookieStore.toString(),
+      },
     });
+    return NextResponse.json(res.data, { status: res.status });
   } catch (error) {
-    if (axios.isAxiosError(error)) {
+    if (isAxiosError(error)) {
+      logErrorResponse(error.response?.data);
       return NextResponse.json(
-        error.response?.data ?? { message: "Failed to delete note" },
-        { status: error.response?.status ?? 500 }
+        { error: error.message, response: error.response?.data },
+        { status: error.status }
       );
     }
-
-    return NextResponse.json({ message: "Unknown error" }, { status: 500 });
+    logErrorResponse({ message: (error as Error).message });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

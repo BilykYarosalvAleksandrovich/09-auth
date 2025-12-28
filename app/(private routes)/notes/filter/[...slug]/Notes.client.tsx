@@ -1,52 +1,60 @@
 "use client";
-
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
-
-import { fetchNotes } from "@/lib/api/clientApi";
-import SearchBox from "@/components/SearchBox/SearchBox";
-import Pagination from "@/components/Pagination/Pagination";
+import css from "./page.module.css";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import Loader from "@/components/Loader/Loader";
+import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 import NoteList from "@/components/NoteList/NoteList";
-import { useDebounce } from "@/hooks/useDebounce";
-import type { Note } from "@/types/note";
 
-type Props = {
-  tag: string;
-};
+import { Toaster } from "react-hot-toast";
+import Pagination from "@/components/Pagination/Pagination";
+import { useState } from "react";
+import SearchBox from "@/components/SearchBox/SearchBox";
+import { useDebounce } from "use-debounce";
+import Link from "next/link";
+import { fetchNotes } from "@/lib/api//clientApi";
 
-export default function NotesClient({ tag }: Props) {
-  const [page, setPage] = useState<number>(1);
-  const [search, setSearch] = useState<string>("");
+interface NotesProps {
+  tag?: string;
+}
 
-  const debouncedSearch = useDebounce(search, 500);
+const Notes = ({ tag }: NotesProps) => {
+  const [query, setQuery] = useState("");
+  const [debounceTerm] = useDebounce(query, 500);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["notes", tag, page, debouncedSearch],
-    queryFn: () =>
-      fetchNotes({
-        page,
-        search: debouncedSearch,
-        tag,
-      }),
+  const { error, data, isLoading, isSuccess } = useQuery({
+    queryKey: ["notes", debounceTerm, currentPage, tag],
+    queryFn: () => fetchNotes(debounceTerm, currentPage, tag),
+    placeholderData: keepPreviousData,
   });
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError || !data) return <p>Error loading notes</p>;
+  const onChange = (value: string) => {
+    setQuery(value);
+    setCurrentPage(1);
+  };
 
   return (
-    <div>
-      <Link href="/notes/action/create">Create note</Link>
+    <div className={css.app}>
+      <Toaster position="top-right" />
 
-      <SearchBox value={search} onChange={setSearch} />
-
-      <NoteList notes={data.notes as Note[]} />
-
-      <Pagination
-        page={page}
-        totalPages={data.totalPages}
-        onPageChange={setPage}
-      />
+      <header className={css.toolbar}>
+        <SearchBox onChange={onChange} value={query} />
+        {isSuccess && data.totalPages > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            total_pages={data.totalPages}
+          />
+        )}
+        <Link href="/notes/action/create" className={css.button}>
+          Create note +
+        </Link>
+      </header>
+      {isLoading && <Loader />}
+      {error && <ErrorMessage />}
+      {data && data?.notes.length > 0 && <NoteList notes={data.notes} />}
     </div>
   );
-}
+};
+
+export default Notes;

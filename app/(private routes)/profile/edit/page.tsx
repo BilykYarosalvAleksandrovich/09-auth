@@ -1,41 +1,42 @@
 "use client";
-
-import { FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import css from "./EditProfile.module.css";
-import { getMe, updateMe } from "@/lib/api/clientApi";
-import { useAuthStore } from "@/lib/store/authStore";
+import { useEffect, useState } from "react";
+import { getMe, patchMe } from "@/lib/api//clientApi";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/lib/store/authStore";
 
-export default function EditProfilePage() {
-  const router = useRouter();
-  const { user, setUser } = useAuthStore();
-
+const EditPage = () => {
   const [username, setUsername] = useState("");
-
+  const router = useRouter();
+  const { setUser, user } = useAuth();
   useEffect(() => {
-    if (!user) {
-      router.replace("/sign-in");
-      return;
-    }
+    const fetchUser = async () => {
+      const data = await getMe();
+      setUser(data);
+      setUsername(data.username);
+    };
+    fetchUser();
+  }, [setUser]);
 
-    setUsername(user.username);
-  }, [user, router]);
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!user) return;
     try {
-      const updatedUser = await updateMe({ username });
+      await patchMe({ username });
+      const updatedUser = await getMe();
       setUser(updatedUser);
       router.push("/profile");
-    } catch {
-      alert("Failed to update profile");
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  if (!user) return null;
+  const handleClick = () => {
+    router.push("/profile");
+  };
 
+  if (!user) return <p>Loading...</p>;
   return (
     <main className={css.mainContent}>
       <div className={css.profileCard}>
@@ -51,14 +52,13 @@ export default function EditProfilePage() {
 
         <form className={css.profileInfo} onSubmit={handleSubmit}>
           <div className={css.usernameWrapper}>
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">Username: </label>
             <input
               id="username"
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
               className={css.input}
-              required
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
@@ -68,11 +68,10 @@ export default function EditProfilePage() {
             <button type="submit" className={css.saveButton}>
               Save
             </button>
-
             <button
               type="button"
               className={css.cancelButton}
-              onClick={() => router.push("/profile")}
+              onClick={handleClick}
             >
               Cancel
             </button>
@@ -81,4 +80,6 @@ export default function EditProfilePage() {
       </div>
     </main>
   );
-}
+};
+
+export default EditPage;

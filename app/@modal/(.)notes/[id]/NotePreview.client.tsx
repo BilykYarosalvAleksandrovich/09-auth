@@ -1,62 +1,51 @@
 "use client";
-
-import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import { fetchNoteById } from "@/lib/api";
-import Modal from "@/components/Modal/Modal";
+import { useParams } from "next/navigation";
+import Loader from "@/components/Loader/Loader";
+import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 import css from "./NotePreview.module.css";
-
-interface NotePreviewProps {
-  id: string;
-}
-
-export default function NotePreviewClient({ id }: NotePreviewProps) {
+import { useRouter } from "next/navigation";
+import Modal from "@/components/Modal/Modal";
+import { fetchNoteById } from "@/lib/api//clientApi";
+const NotePreview = () => {
   const router = useRouter();
-
-  const {
-    data: note,
-    isLoading,
-    error,
-  } = useQuery({
+  const { id } = useParams<{ id: string }>();
+  console.log(id);
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
     refetchOnMount: false,
   });
 
-  const handleClose = () => {
+  const handleClick = () => {
     router.back();
   };
 
-  if (isLoading) {
-    return (
-      <Modal onClose={handleClose}>
-        <p>Loading...</p>
-      </Modal>
-    );
-  }
+  const formattedDate = data
+    ? data.updatedAt
+      ? `Updated at: ${data.updatedAt}`
+      : `Created at: ${data.createdAt}`
+    : "";
 
-  if (error || !note) {
-    return (
-      <Modal onClose={handleClose}>
-        <p>Note not found</p>
-      </Modal>
-    );
-  }
-
+  if (isLoading) return <Loader />;
+  if (isError) return <ErrorMessage />;
+  if (!data) return null;
   return (
-    <Modal onClose={handleClose}>
+    <Modal onClose={handleClick}>
       <div className={css.container}>
         <div className={css.item}>
           <div className={css.header}>
-            <h2>{note.title}</h2>
-            {note.tag && <span className={css.tag}>{note.tag}</span>}
+            <button onClick={handleClick} className={css.backBtn}>
+              Go Back
+            </button>
+            <h2>{data.title}</h2>
           </div>
-          <p className={css.content}>{note.content}</p>
-          <p className={css.date}>
-            {new Date(note.createdAt).toLocaleDateString()}
-          </p>
+          <p className={css.content}>{data.content}</p>
+          <p className={css.date}>{formattedDate}</p>
         </div>
       </div>
     </Modal>
   );
-}
+};
+
+export default NotePreview;

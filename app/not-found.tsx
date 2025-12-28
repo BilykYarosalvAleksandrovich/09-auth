@@ -1,12 +1,11 @@
-import { Metadata } from "next";
-import css from "./not-found.module.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Page Not Found | NoteHub",
-  description: "Sorry, the page you are looking for does not exist.",
+  title: "Cторінку не було знайдено",
+  description: "Сторінку яку ви шукали не було знайдено...",
   openGraph: {
-    title: "Page Not Found | NoteHub",
-    description: "Sorry, the page you are looking for does not exist.",
+    title: "Cторінку не було знайдено",
+    description: "Сторінку яку ви шукали не було знайдено...",
     url: "/not-found",
     images: [
       {
@@ -18,15 +17,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function NotFound() {
+const NotFound = () => {
   return (
-    <main>
-      <div className={css.container}>
-        <h1 className={css.title}>404 - Page not found</h1>
-        <p className={css.description}>
-          Sorry, the page you are looking for does not exist.
-        </p>
-      </div>
-    </main>
+    <div>
+      <h1>404 - Сторінку не було знайдено</h1>
+      <p>Сторінку, яку ви шукали, не знайдено.</p>
+    </div>
   );
-}
+};
+
+export default NotFound;

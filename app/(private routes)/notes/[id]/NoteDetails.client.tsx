@@ -1,14 +1,47 @@
 "use client";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "next/navigation";
+import Loader from "@/components/Loader/Loader";
+import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
+import css from "./NoteDetails.module.css";
+import { useRouter } from "next/navigation";
+import { fetchNoteById } from "@/lib/api/clientApi";
 
-type Props = {
-  id: string;
-};
+const NoteDetails = () => {
+  const { id } = useParams<{ id: string }>();
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["note", id],
+    queryFn: () => fetchNoteById(id),
+    refetchOnMount: false,
+  });
 
-export default function NoteDetailsClient({ id }: Props) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.back();
+  };
+
+  const formattedDate = data
+    ? data.updatedAt
+      ? `Updated at: ${data.updatedAt}`
+      : `Created at: ${data.createdAt}`
+    : "";
+
+  if (isLoading) return <Loader />;
+  if (isError) return <ErrorMessage />;
+  if (!data) return null;
   return (
-    <div>
-      <h1>Note details</h1>
-      <p>Note ID: {id}</p>
+    <div className={css.container}>
+      <div className={css.item}>
+        <div className={css.header}>
+          <button onClick={handleClick}>Go Back</button>
+          <h2>{data.title}</h2>
+        </div>
+        <p className={css.content}>{data.content}</p>
+        <p className={css.date}>{formattedDate}</p>
+      </div>
     </div>
   );
-}
+};
+
+export default NoteDetails;

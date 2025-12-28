@@ -18,9 +18,6 @@
     "[project]/app/(private routes)/notes/filter/page": [
       "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
     ],
-    "[project]/app/(private routes)/notes/page": [
-      "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
-    ],
     "[project]/app/(private routes)/profile/edit/page": [
       "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
     ],
@@ -31,9 +28,6 @@
       "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
     ],
     "[project]/app/_not-found/page": [
-      "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
-    ],
-    "[project]/app/not-found/page": [
       "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
     ],
     "[project]/app/page": [

@@ -1,3 +1,0 @@
-module.exports=[74361,a=>{"use strict";var b=a.i(87924),c=a.i(33217),d=a.i(93505);function e({id:a}){let{data:e,isLoading:f,isError:g}=(0,c.useQuery)({queryKey:["note",a],queryFn:()=>(0,d.fetchNoteById)(a)});return f?(0,b.jsx)("p",{children:"Loading..."}):g||!e?(0,b.jsx)("p",{children:"Failed to load note"}):(0,b.jsxs)("article",{children:[(0,b.jsx)("h1",{children:e.title}),(0,b.jsx)("p",{children:e.content}),(0,b.jsx)("span",{children:e.tag})]})}a.s(["default",()=>e])}];
-
-//# sourceMappingURL=app_%28private%20routes%29_notes_%5Bid%5D_NoteDetails_client_tsx_233a467f._.js.map

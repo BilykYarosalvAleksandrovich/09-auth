@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,82,e=>{"use strict";var s=e.i(43476);e.s(["default",0,({error:e})=>(0,s.jsxs)("div",{children:[(0,s.jsx)("p",{children:"Could not fetch note details. "}),(0,s.jsx)("p",{children:e.message})]})])}]);

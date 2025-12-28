@@ -2,7 +2,7 @@
 import css from "./page.module.css";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import Loader from "@/components/Loader/Loader";
-import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/components/ErrorMesage/ErrorMessage";
 import NoteList from "@/components/NoteList/NoteList";
 
 import { Toaster } from "react-hot-toast";

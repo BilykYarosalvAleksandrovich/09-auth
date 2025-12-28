@@ -1,0 +1,3 @@
+module.exports=[66188,a=>{"use strict";var b=a.i(7997);a.s(["default",0,()=>(0,b.jsxs)("div",{children:[(0,b.jsx)("h1",{children:"404 - Сторінку не було знайдено"}),(0,b.jsx)("p",{children:"Сторінку, яку ви шукали, не знайдено."})]}),"metadata",0,{title:"Cторінку не було знайдено",description:"Сторінку яку ви шукали не було знайдено...",openGraph:{title:"Cторінку не було знайдено",description:"Сторінку яку ви шукали не було знайдено...",url:"/not-found",images:[{url:"https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",width:1200,height:630}]}}])}];
+
+//# sourceMappingURL=app_not-found_tsx_ef35050a._.js.map

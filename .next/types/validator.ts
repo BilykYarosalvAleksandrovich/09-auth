@@ -101,15 +101,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../app/(private routes)/notes/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/notes">> = Specific
-  const handler = {} as typeof import("../../app/(private routes)/notes/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
 // Validate ../../app/(private routes)/profile/edit/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/profile/edit">> = Specific
@@ -132,15 +123,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends AppPageConfig<"/notes/[id]">> = Specific
   const handler = {} as typeof import("../../app/@modal/(.)notes/[id]/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../app/not-found/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/not-found">> = Specific
-  const handler = {} as typeof import("../../app/not-found/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

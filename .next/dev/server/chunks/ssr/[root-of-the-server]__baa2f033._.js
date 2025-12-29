@@ -1,0 +1,54 @@
+module.exports = [
+"[externals]/next/dist/shared/lib/no-fallback-error.external.js [external] (next/dist/shared/lib/no-fallback-error.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("next/dist/shared/lib/no-fallback-error.external.js", () => require("next/dist/shared/lib/no-fallback-error.external.js"));
+
+module.exports = mod;
+}),
+"[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
+
+__turbopack_context__.n(__turbopack_context__.i("[project]/app/layout.tsx [app-rsc] (ecmascript)"));
+}),
+"[project]/app/loading.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
+
+__turbopack_context__.n(__turbopack_context__.i("[project]/app/loading.tsx [app-rsc] (ecmascript)"));
+}),
+"[project]/app/not-found.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
+
+__turbopack_context__.n(__turbopack_context__.i("[project]/app/not-found.tsx [app-rsc] (ecmascript)"));
+}),
+"[project]/app/(private routes)/notes/filter/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
+
+__turbopack_context__.n(__turbopack_context__.i("[project]/app/(private routes)/notes/filter/layout.tsx [app-rsc] (ecmascript)"));
+}),
+"[project]/app/(private routes)/notes/filter/[...slug]/error.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
+
+__turbopack_context__.n(__turbopack_context__.i("[project]/app/(private routes)/notes/filter/[...slug]/error.tsx [app-rsc] (ecmascript)"));
+}),
+"[project]/app/(private routes)/notes/filter/[...slug]/page.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
+
+__turbopack_context__.n(__turbopack_context__.i("[project]/app/(private routes)/notes/filter/[...slug]/page.tsx [app-rsc] (ecmascript)"));
+}),
+"[project]/app/(private routes)/notes/filter/@sidebar/default.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
+
+__turbopack_context__.n(__turbopack_context__.i("[project]/app/(private routes)/notes/filter/@sidebar/default.tsx [app-rsc] (ecmascript)"));
+}),
+"[project]/app/@modal/default.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>__TURBOPACK__default__export__
+]);
+const Modal = ()=>{
+    return null;
+};
+const __TURBOPACK__default__export__ = Modal;
+}),
+"[project]/app/@modal/default.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
+
+__turbopack_context__.n(__turbopack_context__.i("[project]/app/@modal/default.tsx [app-rsc] (ecmascript)"));
+}),
+];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__baa2f033._.js.map

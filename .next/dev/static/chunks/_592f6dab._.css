@@ -1,0 +1,120 @@
+/* [project]/components/NoteForm/NoteForm.module.css [app-client] (css) */
+.NoteForm-module__XA_SlW__form {
+  background: #fff;
+  border-radius: 12px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px;
+  display: flex;
+}
+
+.NoteForm-module__XA_SlW__formGroup {
+  color: #333;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+}
+
+.NoteForm-module__XA_SlW__input, .NoteForm-module__XA_SlW__textarea, .NoteForm-module__XA_SlW__select {
+  resize: none;
+  background: #fdfdfd;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  margin-top: 6px;
+  padding: 10px 14px;
+  font-size: 15px;
+  transition: border .2s, box-shadow .2s;
+}
+
+.NoteForm-module__XA_SlW__input:focus, .NoteForm-module__XA_SlW__textarea:focus, .NoteForm-module__XA_SlW__select:focus {
+  border-color: #b6d4fe;
+  outline: none;
+  box-shadow: 0 0 0 3px #e7f1ff;
+}
+
+.NoteForm-module__XA_SlW__actions {
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+  display: flex;
+}
+
+.NoteForm-module__XA_SlW__submitButton {
+  color: #2a5d9f;
+  cursor: pointer;
+  background-color: #e7f1ff;
+  border: 1px solid #b6d4fe;
+  border-radius: 8px;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all .2s;
+  display: flex;
+}
+
+.NoteForm-module__XA_SlW__submitButton:hover {
+  color: #1f4a7c;
+  background-color: #d6e7ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px #00000014;
+}
+
+.NoteForm-module__XA_SlW__submitButton:disabled {
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  transform: none;
+}
+
+.NoteForm-module__XA_SlW__cancelButton {
+  color: #8a6d1f;
+  cursor: pointer;
+  background-color: #fff9e6;
+  border: 1px solid #f5e6b5;
+  border-radius: 8px;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  font-size: 15px;
+  transition: all .2s;
+  display: flex;
+}
+
+.NoteForm-module__XA_SlW__cancelButton:hover {
+  background-color: #fff2c2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px #00000014;
+}
+
+.NoteForm-module__XA_SlW__error {
+  color: #d9534f;
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+/* [project]/app/(private routes)/notes/action/create/CreateNote.module.css [app-client] (css) */
+.CreateNote-module___suJga__main {
+  flex: 1;
+}
+
+.CreateNote-module___suJga__container {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px 16px;
+}
+
+.CreateNote-module___suJga__title {
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 60px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=_592f6dab._.css.map*/

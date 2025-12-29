@@ -1,45 +1,47 @@
 "use client";
+
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Loader from "@/components/Loader/Loader";
 import ErrorMessage from "@/components/ErrorMesage/ErrorMessage";
-import css from "./NotePreview.module.css";
-import { useRouter } from "next/navigation";
 import Modal from "@/components/Modal/Modal";
-import { fetchNoteById } from "@/lib/api//clientApi";
+import css from "./NotePreview.module.css";
+import { fetchNoteById } from "@/lib/api/clientApi";
+
 const NotePreview = () => {
   const router = useRouter();
-  const { id } = useParams<{ id: string }>();
-  console.log(id);
+  const params = useParams<{ id: string }>();
+  const id = params?.id;
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["note", id],
-    queryFn: () => fetchNoteById(id),
-    refetchOnMount: false,
+    queryFn: () => fetchNoteById(id as string),
+    enabled: Boolean(id),
   });
 
-  const handleClick = () => {
+  const handleClose = () => {
     router.back();
   };
-
-  const formattedDate = data
-    ? data.updatedAt
-      ? `Updated at: ${data.updatedAt}`
-      : `Created at: ${data.createdAt}`
-    : "";
 
   if (isLoading) return <Loader />;
   if (isError) return <ErrorMessage />;
   if (!data) return null;
+
+  const formattedDate = data.updatedAt
+    ? `Updated at: ${data.updatedAt}`
+    : `Created at: ${data.createdAt}`;
+
   return (
-    <Modal onClose={handleClick}>
+    <Modal onClose={handleClose}>
       <div className={css.container}>
         <div className={css.item}>
           <div className={css.header}>
-            <button onClick={handleClick} className={css.backBtn}>
+            <button onClick={handleClose} className={css.backBtn}>
               Go Back
             </button>
             <h2>{data.title}</h2>
           </div>
+
           <p className={css.content}>{data.content}</p>
           <p className={css.date}>{formattedDate}</p>
         </div>

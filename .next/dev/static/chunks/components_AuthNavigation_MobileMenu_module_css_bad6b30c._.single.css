@@ -1,0 +1,49 @@
+/* [project]/components/AuthNavigation/MobileMenu.module.css [app-client] (css) */
+.MobileMenu-module__7zW0Ea__mobileMenu {
+  display: none;
+  position: relative;
+}
+
+.MobileMenu-module__7zW0Ea__hamburger {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 2rem;
+}
+
+.MobileMenu-module__7zW0Ea__menuList {
+  background-color: #fff;
+  border-radius: 8px;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 150px;
+  padding: 15px;
+  display: flex;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  box-shadow: 0 5px 15px #0003;
+}
+
+.MobileMenu-module__7zW0Ea__menuList li {
+  list-style: none;
+}
+
+.MobileMenu-module__7zW0Ea__menuList a, .MobileMenu-module__7zW0Ea__menuList button {
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 5px 0;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .MobileMenu-module__7zW0Ea__mobileMenu {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=components_AuthNavigation_MobileMenu_module_css_bad6b30c._.single.css.map*/

@@ -1,71 +1,115 @@
 /* [project]/app/(auth routes)/sign-in/SignIn.module.css [app-client] (css) */
 .SignIn-module__6C00MG__mainContent {
-  flex: 1;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 20px;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
 }
 
 .SignIn-module__6C00MG__form {
   background-color: #fff;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  flex-direction: column;
-  gap: 16px;
+  border-radius: 12px;
+  width: 100%;
   max-width: 400px;
-  margin: 40px auto;
-  padding: 24px;
-  display: flex;
-  box-shadow: 0 2px 8px #0000000d;
+  padding: 40px 30px;
+  transition: transform .3s, box-shadow .3s;
+  box-shadow: 0 15px 30px #0003;
+}
+
+.SignIn-module__6C00MG__form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px #00000040;
 }
 
 .SignIn-module__6C00MG__formTitle {
+  color: #333;
   text-align: center;
-  color: #212529;
-  margin-bottom: 8px;
-  font-size: 24px;
-  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.SignIn-module__6C00MG__form p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 25px;
+  font-size: .95rem;
 }
 
 .SignIn-module__6C00MG__formGroup {
-  color: #212529;
   flex-direction: column;
-  font-size: 14px;
-  font-weight: 500;
+  margin-bottom: 20px;
   display: flex;
+}
+
+.SignIn-module__6C00MG__formGroup label {
+  color: #444;
+  margin-bottom: 6px;
+  font-weight: 500;
 }
 
 .SignIn-module__6C00MG__input {
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  margin-top: 4px;
-  padding: 8px 12px;
-  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: border .3s, box-shadow .3s;
+}
+
+.SignIn-module__6C00MG__input:focus {
+  border-color: #2575fc;
+  outline: none;
+  box-shadow: 0 0 8px #2575fc4d;
 }
 
 .SignIn-module__6C00MG__actions {
-  justify-content: flex-end;
-  gap: 8px;
-  display: flex;
+  margin-top: 10px;
 }
 
 .SignIn-module__6C00MG__submitButton {
   color: #fff;
   cursor: pointer;
-  background-color: #0d6efd;
+  background-color: #2575fc;
   border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-size: 16px;
-  transition: background-color .2s;
+  border-radius: 8px;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color .3s, transform .2s;
 }
 
 .SignIn-module__6C00MG__submitButton:hover {
-  background-color: #0b5ed7;
+  background-color: #6a11cb;
+  transform: translateY(-2px);
 }
 
 .SignIn-module__6C00MG__error {
-  color: #dc3545;
+  color: #e74c3c;
   text-align: center;
-  margin-top: 4px;
-  font-size: 12px;
+  margin-top: 12px;
+  font-size: .9rem;
+}
+
+.SignIn-module__6C00MG__signInText {
+  text-align: center;
+  color: #555;
+  margin-top: 20px;
+  font-size: .9rem;
+}
+
+.SignIn-module__6C00MG__signInText a {
+  color: #2575fc;
+  margin-left: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.SignIn-module__6C00MG__signInText a:hover {
+  color: #6a11cb;
 }
 
 /*# sourceMappingURL=app_%28auth%20routes%29_sign-in_SignIn_module_5052e492.css.map*/

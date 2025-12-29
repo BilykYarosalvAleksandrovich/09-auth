@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/components/SearchBox/SearchBox.module.css"],"sourcesContent":[".input {\n  flex: 1;\n  max-width: 240px;\n  padding: 6px 12px;\n  font-size: 16px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n}\n"],"names":[],"mappings":"AAAA"}}]
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/components/SearchBox/SearchBox.module.css"],"sourcesContent":[".input {\n  flex: 1;\n  max-width: 280px;\n  padding: 10px 14px;\n  font-size: 15px;\n  border: 1px solid #d0d7de;\n  border-radius: 8px;\n  background: #fdfdfd;\n  margin-left: 70px;\n  transition: border 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;\n}\n\n/* Fokus-Effekt */\n.input:focus {\n  outline: none;\n  border-color: #b6d4fe;\n  background: #ffffff;\n  box-shadow: 0 0 0 3px #e7f1ff;\n}\n\n/* Placeholder Style */\n.input::placeholder {\n  color: #9a9a9a;\n  font-size: 14px;\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;;;;AAaA;;;;;;;AAQA"}}]
 }

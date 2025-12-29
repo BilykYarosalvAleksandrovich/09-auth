@@ -26,11 +26,12 @@ __turbopack_context__.n(__turbopack_context__.i("[project]/app/page.tsx [app-rsc
 
 __turbopack_context__.s([
     "default",
-    ()=>Default
+    ()=>__TURBOPACK__default__export__
 ]);
-function Default() {
+const Modal = ()=>{
     return null;
-}
+};
+const __TURBOPACK__default__export__ = Modal;
 }),
 "[project]/app/@modal/default.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
 

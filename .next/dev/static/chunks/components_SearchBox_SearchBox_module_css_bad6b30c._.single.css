@@ -1,11 +1,26 @@
 /* [project]/components/SearchBox/SearchBox.module.css [app-client] (css) */
 .SearchBox-module__izN5UG__input {
-  border: 1px solid #ced4da;
-  border-radius: 4px;
+  background: #fdfdfd;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
   flex: 1;
-  max-width: 240px;
-  padding: 6px 12px;
-  font-size: 16px;
+  max-width: 280px;
+  margin-left: 70px;
+  padding: 10px 14px;
+  font-size: 15px;
+  transition: border .2s, box-shadow .2s, background .2s;
+}
+
+.SearchBox-module__izN5UG__input:focus {
+  background: #fff;
+  border-color: #b6d4fe;
+  outline: none;
+  box-shadow: 0 0 0 3px #e7f1ff;
+}
+
+.SearchBox-module__izN5UG__input::placeholder {
+  color: #9a9a9a;
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=components_SearchBox_SearchBox_module_css_bad6b30c._.single.css.map*/

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/mac/Desktop/%D1%88%D0%BA%D0%BE%D0%BB%D0%B0%20GoIt/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%96%20%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F%20GitHub/projects/React.js%2BNext/09-auth/app/%28private%20routes%29/notes/filter/%5B...slug%5D/error.tsx"],"sourcesContent":["\"use client\";\n\ninterface ErrorProps {\n  error: Error;\n  reset: () => void;\n}\n\nconst Error = ({ error, reset }: ErrorProps) => {\n  console.error(error);\n\n  return (\n    <div>\n      <p>Whoops... something went wrong!</p>\n      <p>{error.message}</p>\n      <button onClick={reset}>Reset</button>\n    </div>\n  );\n};\n\nexport default Error;"],"names":[],"mappings":";;;;;AAAA;;AAOA,MAAM,QAAQ,CAAC,EAAE,KAAK,EAAE,KAAK,EAAc;IACzC,QAAQ,KAAK,CAAC;IAEd,qBACE,6LAAC;;0BACC,6LAAC;0BAAE;;;;;;0BACH,6LAAC;0BAAG,MAAM,OAAO;;;;;;0BACjB,6LAAC;gBAAO,SAAS;0BAAO;;;;;;;;;;;;AAG9B;KAVM;uCAYS"}}]
+}

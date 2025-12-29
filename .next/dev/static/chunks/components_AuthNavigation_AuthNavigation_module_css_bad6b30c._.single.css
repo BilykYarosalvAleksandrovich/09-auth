@@ -1,24 +1,27 @@
 /* [project]/components/AuthNavigation/AuthNavigation.module.css [app-client] (css) */
 .AuthNavigation-module__DN8toa__userEmail {
-  color: #fff;
+  color: #333;
   margin-right: .5rem;
   font-size: .9rem;
+  font-weight: 500;
 }
 
 .AuthNavigation-module__DN8toa__logoutButton {
-  color: #fff;
+  color: #333;
   cursor: pointer;
   background: none;
-  border: 1px solid #fff;
-  border-radius: 4px;
+  border: 1px solid #333;
+  border-radius: 6px;
   padding: .3rem .6rem;
   font-size: .9rem;
-  transition: background-color .3s, color .3s;
+  transition: background-color .3s, color .3s, border-color .3s;
+  box-shadow: 0 2px 6px #0000000d;
 }
 
 .AuthNavigation-module__DN8toa__logoutButton:hover {
-  color: #333;
-  background-color: #fff;
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
 }
 
 .AuthNavigation-module__DN8toa__navigationItem {
@@ -27,13 +30,18 @@
 }
 
 .AuthNavigation-module__DN8toa__navigationLink {
-  color: #fff;
+  color: #444;
+  border-radius: 8px;
+  padding: 8px 12px;
   font-size: 1rem;
+  font-weight: 500;
   text-decoration: none;
+  transition: background .2s, color .2s;
 }
 
 .AuthNavigation-module__DN8toa__navigationLink:hover {
-  color: #ddd;
+  color: #2a5d9f;
+  background: #ffffffa8;
 }
 
 /*# sourceMappingURL=components_AuthNavigation_AuthNavigation_module_css_bad6b30c._.single.css.map*/
